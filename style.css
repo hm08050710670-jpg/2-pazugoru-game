@@ -852,3 +852,45 @@ html,body{margin:0!important;padding:0!important;width:100%!important;max-width:
 /* Keep a real Back button on top of the baked Back artwork. */
 .stage-map-back{background:transparent!important;border:0!important;box-shadow:none!important;color:transparent!important;width:126px!important;height:66px!important;left:7px!important;top:max(10px,env(safe-area-inset-top))!important}
 .stage-map-back span{visibility:hidden!important}
+
+/* PROGRESSION STATE OVERLAYS — artwork stays fixed; state is shown clearly on top. */
+.area-node{touch-action:manipulation!important;-webkit-user-select:none!important;user-select:none!important;-webkit-touch-callout:none!important}
+.area-node.locked{pointer-events:none!important}
+.area-node.locked::before{
+  content:"🔒";visibility:visible!important;position:absolute;inset:0;display:grid;place-items:center;
+  color:#eee;font-size:25px;background:rgba(16,16,16,.28);border-radius:999px;
+}
+.area-node.current::before{
+  content:"";visibility:visible!important;position:absolute;inset:-4px;border-radius:999px;
+  border:4px solid #75ff9f;box-shadow:0 0 18px #39f579,0 0 5px #fff inset;background:rgba(17,196,86,.14);
+}
+.area-node.cleared::before{
+  content:"✓";visibility:visible!important;position:absolute;right:-9px;top:-11px;width:34px;height:34px;
+  display:grid;place-items:center;border-radius:50%;background:#ffe574;color:#275e37;border:3px solid #fff;
+  box-shadow:0 3px 8px #0006;font:1000 21px/1 system-ui;
+}
+.area-node.cleared::after{
+  content:"";visibility:visible!important;position:absolute;inset:-3px;border-radius:999px;
+  border:3px solid #7df0a0;background:rgba(0,125,63,.10);
+}
+/* Boss remains visibly special when it becomes available. */
+.area-node.boss-node.current::before{border-color:#ffdf65!important;box-shadow:0 0 25px #ffca36,0 0 8px #fff inset!important;background:rgba(224,55,45,.12)!important}
+
+/* Stop Safari from zooming/selecting the game on stray taps. */
+html,body,#viewport,#stageMap,.area-map,.area-map-art{
+  touch-action:manipulation!important;
+  -webkit-text-size-adjust:100%!important;
+  -webkit-user-select:none!important;user-select:none!important;
+  -webkit-touch-callout:none!important;
+}
+button,input,select,textarea{font-size:16px}
+
+/* TWO SAVE SLOTS */
+.save-select{position:fixed;inset:0;z-index:850;display:grid;place-items:center;padding:calc(28px + env(safe-area-inset-top)) 22px calc(28px + env(safe-area-inset-bottom));background:linear-gradient(180deg,#062d25,#031c17);color:#fff}
+.save-select[hidden]{display:none!important}
+.save-card{width:min(90vw,430px);padding:28px 20px 22px;border:1px solid #6fc59b;border-radius:28px;background:linear-gradient(180deg,#0c513f,#07382f);box-shadow:0 24px 70px #0008;text-align:center}
+.save-kicker{font:900 12px/1 system-ui;letter-spacing:.3em;color:#8fe4b5}.save-card h2{margin:10px 0 22px;font:1000 25px/1.2 system-ui}
+.save-slot{width:100%;min-height:104px;margin:0 0 14px;padding:16px 18px;border:2px solid #8ce5af;border-radius:20px;background:linear-gradient(180deg,#11734f,#095139);color:#fff;text-align:left;box-shadow:0 5px 0 #033c2a;touch-action:manipulation}
+.save-slot b{display:block;font:1000 24px/1 system-ui;color:#fff4ad}.save-slot span{display:block;margin-top:9px;font:900 17px/1 system-ui}.save-slot em{display:block;margin-top:7px;font:700 12px/1 system-ui;color:#bdebd0;font-style:normal}
+.save-slot:active{transform:translateY(4px);box-shadow:0 1px 0 #033c2a}.save-card p{margin:18px 4px 15px;color:#b8d9ca;font:700 11px/1.5 system-ui}
+.save-back{min-width:130px;min-height:46px;border:1px solid #89c8aa;border-radius:999px;background:#062d25;color:#fff;font:900 15px/1 system-ui}

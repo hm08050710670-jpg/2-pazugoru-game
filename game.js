@@ -728,39 +728,55 @@ async function enemyShot(epoch){
   };
   const COURSE_BOSS=new Set(['s1-7-boss']);
   let currentArea=1,currentEncounterIndex=0;
+  let activeSaveSlot=Number(sessionStorage.getItem('pazugoru-active-save-slot')||0);
   function courseOf(){return 1}
-  function unlockedArea(){
-    const v=Number(localStorage.getItem('pazugoru-stage1-unlocked-area')||1);
+  function saveKey(name,slot=activeSaveSlot){return `pazugoru-save-${slot||1}-${name}`}
+  function unlockedArea(slot=activeSaveSlot){
+    const v=Number(localStorage.getItem(saveKey('stage1-unlocked-area',slot))||1);
     return Number.isFinite(v)?Math.max(1,Math.min(7,v)):1;
   }
-  function clearedAreas(){
-    try{return new Set(JSON.parse(localStorage.getItem('pazugoru-stage1-cleared')||'[]'))}catch(e){return new Set()}
+  function clearedAreas(slot=activeSaveSlot){
+    try{return new Set(JSON.parse(localStorage.getItem(saveKey('stage1-cleared',slot))||'[]'))}catch(e){return new Set()}
   }
   function markAreaClear(n){
     const set=clearedAreas();set.add(n);
-    localStorage.setItem('pazugoru-stage1-cleared',JSON.stringify([...set].sort((a,b)=>a-b)));
-    if(n<7)localStorage.setItem('pazugoru-stage1-unlocked-area',String(Math.max(unlockedArea(),n+1)));
+    localStorage.setItem(saveKey('stage1-cleared'),JSON.stringify([...set].sort((a,b)=>a-b)));
+    if(n<7)localStorage.setItem(saveKey('stage1-unlocked-area'),String(Math.max(unlockedArea(),n+1)));
     updateStageMap();
+  }
+  function saveStatus(slot){
+    const c=clearedAreas(slot),u=unlockedArea(slot);
+    if(c.has(7))return 'STAGE 1 CLEAR';
+    if(c.size===0)return '1-1から';
+    return `1-${u}まで解放`;
+  }
+  function refreshSaveSelect(){
+    const a=$('save1Status'),b=$('save2Status');
+    if(a)a.textContent=saveStatus(1);if(b)b.textContent=saveStatus(2);
+  }
+  function chooseSaveSlot(slot){
+    activeSaveSlot=slot;sessionStorage.setItem('pazugoru-active-save-slot',String(slot));
+    const sel=$('saveSelect');if(sel)sel.hidden=true;
+    const opening=$('openingScreen');if(opening)opening.hidden=true;
+    showStageMap();
   }
   function updateStageMap(){
     const u=unlockedArea(),cleared=clearedAreas();
-    
-  const stageMapBack=$('stageMapBack');
-  if(stageMapBack)stageMapBack.addEventListener('click',()=>{
-    try{uiClick();}catch(e){}
-    // If this page was reached from another page/site, return there.
-    if(window.history.length>1){window.history.back();return;}
-    // Standalone/PWA fallback: return to the game's opening screen.
-    const m=$('stageMap');if(m)m.hidden=true;
-    const opening=$('openingScreen');if(opening)opening.hidden=false;
-  });
-  document.querySelectorAll('.area-node[data-area]').forEach(b=>{
-      const n=Number(b.dataset.area),locked=n>u;
-      b.disabled=locked;b.classList.toggle('locked',locked);b.classList.toggle('cleared',cleared.has(n));
-      b.classList.toggle('current',!locked&&!cleared.has(n)&&n===u);
-      const lock=b.querySelector('.area-lock');if(lock)lock.hidden=!locked;
+    document.querySelectorAll('.area-node[data-area]').forEach(b=>{
+      const n=Number(b.dataset.area),locked=n>u,isCleared=cleared.has(n),isCurrent=!locked&&!isCleared&&n===u;
+      b.disabled=locked;b.setAttribute('aria-disabled',locked?'true':'false');b.tabIndex=locked?-1:0;
+      b.classList.toggle('locked',locked);b.classList.toggle('cleared',isCleared);b.classList.toggle('current',isCurrent);
+      b.style.pointerEvents=locked?'none':'auto';
     });
   }
+  function returnFromStageMap(){
+    try{uiClick();}catch(e){}
+    const m=$('stageMap');if(m)m.hidden=true;
+    const sel=$('saveSelect');if(sel){refreshSaveSelect();sel.hidden=false;return;}
+    const opening=$('openingScreen');if(opening)opening.hidden=false;
+  }
+  const stageMapBack=$('stageMapBack');
+  if(stageMapBack)stageMapBack.addEventListener('click',returnFromStageMap,{passive:true});
   function showStageMap(){
     const m=document.getElementById('stageMap');if(!m)return;
     m.hidden=false;updateStageMap();Audio.stopEffects();try{void Audio.playWorld();}catch(e){}
@@ -953,7 +969,7 @@ async function enemyShot(epoch){
     if(c.state==='running')fire();else c.resume().then(fire).catch(()=>{});
   }
   function pressFx(b){b.classList.add('pressed');uiClick();setTimeout(()=>b.classList.remove('pressed'),145)}
-  document.querySelectorAll('.area-node[data-area]').forEach(b=>b.addEventListener('click',()=>{if(!b.disabled){pressFx(b);setTimeout(()=>startArea(Number(b.dataset.area)),70)}}));
+  document.querySelectorAll('.area-node[data-area]').forEach(b=>b.addEventListener('click',e=>{const n=Number(b.dataset.area);if(b.disabled||n>unlockedArea()){e.preventDefault();e.stopPropagation();return;}pressFx(b);setTimeout(()=>startArea(n),70);}));
   updateStageMap();
   const worldMapPreload=new Image();worldMapPreload.src='world-bg.webp';
   (async()=>{
@@ -999,10 +1015,20 @@ async function enemyShot(epoch){
     startButton.addEventListener('click',()=>{
       if(started)return;started=true;
       startButton.classList.add('pressed','flash');
-      setTimeout(()=>{opening.hidden=true;showStageMap();},180);
+      setTimeout(()=>{opening.hidden=true;refreshSaveSelect();const sel=$('saveSelect');if(sel)sel.hidden=false;},180);
     });
   }
 
+
+  document.querySelectorAll('[data-save-slot]').forEach(b=>b.addEventListener('click',()=>{
+    try{uiClick();}catch(e){}chooseSaveSlot(Number(b.dataset.saveSlot));
+  }));
+  const saveSelectBack=$('saveSelectBack');
+  if(saveSelectBack)saveSelectBack.addEventListener('click',()=>{
+    try{uiClick();}catch(e){}
+    const sel=$('saveSelect');if(sel)sel.hidden=true;
+    const opening=$('openingScreen');if(opening)opening.hidden=false;
+  });
   // Test-only helpers are absent from a normal URL. No server/score writes exist.
   if(new URLSearchParams(location.search).get('test')==='1'){
     window.__pazugoruTest=Object.freeze({
@@ -1027,5 +1053,15 @@ async function enemyShot(epoch){
       cancel:()=>cancelDrag('test cancel'),reset:()=>resetGame()
     });
   }
+
+  // iOS Safari: prevent accidental double-tap / pinch zoom inside the game.
+  let lastGameTouchEnd=0;
+  document.addEventListener('touchend',e=>{
+    if(!e.target.closest('#viewport'))return;
+    const now=Date.now();
+    if(now-lastGameTouchEnd<320)e.preventDefault();
+    lastGameTouchEnd=now;
+  },{passive:false});
+  document.addEventListener('gesturestart',e=>{if(e.target.closest('#viewport'))e.preventDefault();},{passive:false});
 })();
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="ja">
-<head>
+<head><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
 <meta content="#071f19" name="theme-color"/>
@@ -27,7 +27,16 @@
     <span>パズルでモンスターを倒せ！</span>
   </div>
 </div><div id="bootLoader" class="boot-loader" role="status" aria-live="polite"><div class="boot-card"><div class="boot-ball"></div><strong>LOADING</strong><span id="bootPercent">0%</span></div></div>
-<section id="openingScreen" class="opening-screen premium-start">
+<section id="saveSelect" class="save-select" hidden aria-label="セーブデータを選択">
+  <div class="save-card">
+    <div class="save-kicker">PAZUGORU</div>
+    <h2>セーブデータを選択</h2>
+    <button class="save-slot" data-save-slot="1"><b>DATA 1</b><span id="save1Status">1-1から</span><em>つづきから</em></button>
+    <button class="save-slot" data-save-slot="2"><b>DATA 2</b><span id="save2Status">1-1から</span><em>つづきから</em></button>
+    <p>進行状況はこの端末・ブラウザに自動保存されます</p>
+    <button id="saveSelectBack" class="save-back" type="button">戻る</button>
+  </div>
+</section><section id="openingScreen" class="opening-screen premium-start">
 <div class="start-art-wrap">
   <img class="screen-art" src="start-screen.webp" alt="パズゴル">
   <button id="gameStartButton" class="start-hit real-start-button" aria-label="ゲームスタート">
