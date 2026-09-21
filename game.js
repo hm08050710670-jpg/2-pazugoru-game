@@ -203,10 +203,11 @@ function matchBurst(point,size,combo){const count=Math.min(16,6+Math.max(0,size-
       const bottom=hudRect.top-heroRect.top-10;
       const gap=14, safeW=Math.max(60,heroRect.width-32), safeH=Math.max(40,bottom-top);
       const fitScale=Math.min(d.visibleHeight/(box[3]-box[1]),Math.max(.04,(safeW-gap*2)/(env[2]-env[0])),Math.max(.04,(safeH-gap*2)/(env[3]-env[1])));
-      // Monster display standard: all enemies +18%; bosses are 1.30x the enlarged normal size.
-      // Clamp to the available actor area so horns / ears / wings / tails never clip.
-      const isBoss=COURSE_BOSS.has(activeStage?.id);
-      const requestedScale=fitScale*1.18*(isBoss?1.30:1);
+      // SIZE POLICY: ordinary monsters stay at the original size.
+      // Only the two approved dragon bosses may be enlarged.
+      const LARGE_BOSS_IDS=new Set(['s1-7-boss','c2-abiko']);
+      const isLargeBoss=LARGE_BOSS_IDS.has(activeStage?.id);
+      const requestedScale=fitScale*(isLargeBoss?1.30:1);
       const hardMax=Math.min(Math.max(.04,(safeW-4)/(env[2]-env[0])),Math.max(.04,(safeH-4)/(env[3]-env[1])));
       const scale=Math.min(requestedScale,hardMax);
       const y=top+(safeH-(env[3]-env[1])*scale)/2-env[1]*scale;
@@ -743,7 +744,17 @@ async function enemyShot(epoch){
   }
   function updateStageMap(){
     const u=unlockedArea(),cleared=clearedAreas();
-    document.querySelectorAll('.area-node[data-area]').forEach(b=>{
+    
+  const stageMapBack=$('stageMapBack');
+  if(stageMapBack)stageMapBack.addEventListener('click',()=>{
+    try{uiClick();}catch(e){}
+    // If this page was reached from another page/site, return there.
+    if(window.history.length>1){window.history.back();return;}
+    // Standalone/PWA fallback: return to the game's opening screen.
+    const m=$('stageMap');if(m)m.hidden=true;
+    const opening=$('openingScreen');if(opening)opening.hidden=false;
+  });
+  document.querySelectorAll('.area-node[data-area]').forEach(b=>{
       const n=Number(b.dataset.area),locked=n>u;
       b.disabled=locked;b.classList.toggle('locked',locked);b.classList.toggle('cleared',cleared.has(n));
       b.classList.toggle('current',!locked&&!cleared.has(n)&&n===u);
@@ -821,8 +832,24 @@ async function enemyShot(epoch){
     const stageLabel=$('resultStageLabel');if(stageLabel)stageLabel.textContent='1-'+currentArea+' CLEAR';
     $('resultMessage').textContent=win?('1-'+currentArea+' をクリア！'):(activeStage.name+'に負けた！');
     $('resultTurns').textContent=`${state.turn} ターン`;$('resultCombo').textContent=`最高 ${state.maxCombo} COMBO`;
+    const actions=$('retryButton').parentElement;
+    let nextAreaBtn=$('nextAreaButton');
+    if(!nextAreaBtn){
+      nextAreaBtn=document.createElement('button');nextAreaBtn.id='nextAreaButton';nextAreaBtn.className='next-area';
+      actions.appendChild(nextAreaBtn);
+      nextAreaBtn.addEventListener('click',()=>{
+        if(currentArea>=7)return;
+        const next=currentArea+1;
+        ui.result.hidden=true;modalMode(false);
+        setTimeout(()=>startArea(next),80);
+      });
+    }
+    // Show only after a clear and only when another area exists.
+    nextAreaBtn.hidden=!(win&&currentArea<7);
+    if(!nextAreaBtn.hidden)nextAreaBtn.textContent='次のステージへ  1-'+(currentArea+1);
+
     let mapBtn=$('mapReturnButton');
-    if(!mapBtn){mapBtn=document.createElement('button');mapBtn.id='mapReturnButton';mapBtn.className='map-return';mapBtn.textContent='マップへ戻る';$('retryButton').parentElement.appendChild(mapBtn);mapBtn.addEventListener('click',()=>{ui.result.hidden=true;modalMode(false);try{void Audio.playWorld();}catch(e){}showStageMap()});}
+    if(!mapBtn){mapBtn=document.createElement('button');mapBtn.id='mapReturnButton';mapBtn.className='map-return';mapBtn.textContent='マップへ戻る';actions.appendChild(mapBtn);mapBtn.addEventListener('click',()=>{ui.result.hidden=true;modalMode(false);try{void Audio.playWorld();}catch(e){}showStageMap()});}
     mapBtn.hidden=false;$('retryButton').textContent=win?'このエリアをもう一度':'もう一度挑戦';$('retryButton').focus({preventScroll:true});
   }
   async function bossIntro(){
@@ -866,7 +893,7 @@ async function enemyShot(epoch){
       const s=await Assets.activate(id,(done,total)=>{if(seq===loadSerial){$('loadText').textContent='素材を準備中 '+done+' / '+total;$('loadProgress').value=done/total;}});
       if(seq!==loadSerial)return;
       activeStage=s;CONFIG=Object.freeze({...s.stats});POSES=Object.freeze(s.poses);
-      ui.hero.classList.toggle('boss-display',COURSE_BOSS.has(s.id));
+      ui.hero.classList.toggle('boss-display',s.id==='s1-7-boss'||s.id==='c2-abiko');
       ui.app.setAttribute('aria-label','パズゴル '+s.stageLabel+' '+s.name);
       ui.hero.style.setProperty('--stage-image',`url("${s.background}")`);
       $('stageLabel').textContent=s.stageLabel;$('enemyName').textContent=s.name;

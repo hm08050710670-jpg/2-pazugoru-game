@@ -22,21 +22,21 @@
     "frameHeight": 1024,
     "groundY": 1024,
     "inkBounds": [
-      323,
-      375,
-      701,
-      649
+      266,
+      337,
+      753,
+      686
     ],
     "motionBounds": [
-      323,
-      375,
-      701,
-      649
+      266,
+      337,
+      753,
+      686
     ],
-    "visibleHeight": 190,
+    "visibleHeight": 170,
     "baseline": 1024,
-    "width": 190,
-    "height": 190,
+    "width": 170,
+    "height": 170,
     "displayScale": 1.0
   },
   "poses": {
@@ -47,10 +47,10 @@
       "note": "STAGE1正式素材",
       "src": "s1-shibamushi.png",
       "inkBounds": [
-        323,
-        375,
-        701,
-        649
+        266,
+        337,
+        753,
+        686
       ]
     },
     "happy": {
@@ -60,10 +60,10 @@
       "note": "STAGE1正式素材",
       "src": "s1-shibamushi.png",
       "inkBounds": [
-        323,
-        375,
-        701,
-        649
+        266,
+        337,
+        753,
+        686
       ]
     },
     "curious": {
@@ -73,10 +73,10 @@
       "note": "STAGE1正式素材",
       "src": "s1-shibamushi.png",
       "inkBounds": [
-        323,
-        375,
-        701,
-        649
+        266,
+        337,
+        753,
+        686
       ]
     },
     "sleepy": {
@@ -86,10 +86,10 @@
       "note": "STAGE1正式素材",
       "src": "s1-shibamushi.png",
       "inkBounds": [
-        323,
-        375,
-        701,
-        649
+        266,
+        337,
+        753,
+        686
       ]
     },
     "alert": {
@@ -99,10 +99,10 @@
       "note": "STAGE1正式素材",
       "src": "s1-shibamushi.png",
       "inkBounds": [
-        323,
-        375,
-        701,
-        649
+        266,
+        337,
+        753,
+        686
       ]
     },
     "hurt1": {
@@ -112,10 +112,10 @@
       "note": "STAGE1正式素材",
       "src": "s1-shibamushi.png",
       "inkBounds": [
-        323,
-        375,
-        701,
-        649
+        266,
+        337,
+        753,
+        686
       ]
     },
     "hurt2": {
@@ -125,10 +125,10 @@
       "note": "STAGE1正式素材",
       "src": "s1-shibamushi.png",
       "inkBounds": [
-        323,
-        375,
-        701,
-        649
+        266,
+        337,
+        753,
+        686
       ]
     },
     "hurt3": {
@@ -138,10 +138,10 @@
       "note": "STAGE1正式素材",
       "src": "s1-shibamushi.png",
       "inkBounds": [
-        323,
-        375,
-        701,
-        649
+        266,
+        337,
+        753,
+        686
       ]
     },
     "attack": {
@@ -151,10 +151,10 @@
       "note": "STAGE1正式素材",
       "src": "s1-shibamushi.png",
       "inkBounds": [
-        323,
-        375,
-        701,
-        649
+        266,
+        337,
+        753,
+        686
       ]
     },
     "strong": {
@@ -164,10 +164,10 @@
       "note": "STAGE1正式素材",
       "src": "s1-shibamushi.png",
       "inkBounds": [
-        323,
-        375,
-        701,
-        649
+        266,
+        337,
+        753,
+        686
       ]
     },
     "special": {
@@ -177,10 +177,10 @@
       "note": "STAGE1正式素材",
       "src": "s1-shibamushi.png",
       "inkBounds": [
-        323,
-        375,
-        701,
-        649
+        266,
+        337,
+        753,
+        686
       ]
     },
     "defeated": {
@@ -190,10 +190,10 @@
       "note": "STAGE1正式素材",
       "src": "s1-shibamushi.png",
       "inkBounds": [
-        323,
-        375,
-        701,
-        649
+        266,
+        337,
+        753,
+        686
       ]
     },
     "smile": {
@@ -203,10 +203,10 @@
       "note": "STAGE1正式素材",
       "src": "s1-shibamushi.png",
       "inkBounds": [
-        323,
-        375,
-        701,
-        649
+        266,
+        337,
+        753,
+        686
       ]
     },
     "angry": {
@@ -216,10 +216,10 @@
       "note": "STAGE1正式素材",
       "src": "s1-shibamushi.png",
       "inkBounds": [
-        323,
-        375,
-        701,
-        649
+        266,
+        337,
+        753,
+        686
       ]
     },
     "cry": {
@@ -229,10 +229,10 @@
       "note": "STAGE1正式素材",
       "src": "s1-shibamushi.png",
       "inkBounds": [
-        323,
-        375,
-        701,
-        649
+        266,
+        337,
+        753,
+        686
       ]
     },
     "surprised": {
@@ -242,10 +242,10 @@
       "note": "STAGE1正式素材",
       "src": "s1-shibamushi.png",
       "inkBounds": [
-        323,
-        375,
-        701,
-        649
+        266,
+        337,
+        753,
+        686
       ]
     },
     "worried": {
@@ -255,10 +255,10 @@
       "note": "STAGE1正式素材",
       "src": "s1-shibamushi.png",
       "inkBounds": [
-        323,
-        375,
-        701,
-        649
+        266,
+        337,
+        753,
+        686
       ]
     },
     "stare": {
@@ -268,10 +268,10 @@
       "note": "STAGE1正式素材",
       "src": "s1-shibamushi.png",
       "inkBounds": [
-        323,
-        375,
-        701,
-        649
+        266,
+        337,
+        753,
+        686
       ]
     },
     "wink": {
@@ -281,10 +281,10 @@
       "note": "STAGE1正式素材",
       "src": "s1-shibamushi.png",
       "inkBounds": [
-        323,
-        375,
-        701,
-        649
+        266,
+        337,
+        753,
+        686
       ]
     },
     "grumpy": {
@@ -294,10 +294,10 @@
       "note": "STAGE1正式素材",
       "src": "s1-shibamushi.png",
       "inkBounds": [
-        323,
-        375,
-        701,
-        649
+        266,
+        337,
+        753,
+        686
       ]
     }
   }
