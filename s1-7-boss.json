@@ -1,0 +1,315 @@
+{
+  "schema": 1,
+  "id": "s1-7-boss",
+  "name": "越谷ベビードラゴン",
+  "stageLabel": "1-7  4/4",
+  "course": "STAGE 1 始まりの河川敷",
+  "background": "battle-riverside.webp",
+  "texture": "turf.webp",
+  "element": "fire",
+  "stats": {
+    "enemyMax": 5200,
+    "playerMax": 3200,
+    "enemyAttack": 360,
+    "enemyEvery": 1,
+    "attackPerBall": 42,
+    "comboStep": 0.38,
+    "healPerBall": 38,
+    "healComboStep": 0.2
+  },
+  "display": {
+    "frameWidth": 1024,
+    "frameHeight": 1024,
+    "groundY": 1024,
+    "inkBounds": [
+      256,
+      294,
+      768,
+      730
+    ],
+    "motionBounds": [
+      256,
+      294,
+      768,
+      730
+    ],
+    "visibleHeight": 245,
+    "baseline": 1024,
+    "width": 245,
+    "height": 245,
+    "displayScale": 1.0
+  },
+  "poses": {
+    "normal": {
+      "label": "normal",
+      "kind": "idle",
+      "detail": "1モンスター1枚方式。",
+      "note": "STAGE1正式素材",
+      "src": "c1-koshigaya-dragon.png",
+      "inkBounds": [
+        256,
+        294,
+        768,
+        730
+      ]
+    },
+    "happy": {
+      "label": "happy",
+      "kind": "idle",
+      "detail": "1モンスター1枚方式。",
+      "note": "STAGE1正式素材",
+      "src": "c1-koshigaya-dragon.png",
+      "inkBounds": [
+        256,
+        294,
+        768,
+        730
+      ]
+    },
+    "curious": {
+      "label": "curious",
+      "kind": "idle",
+      "detail": "1モンスター1枚方式。",
+      "note": "STAGE1正式素材",
+      "src": "c1-koshigaya-dragon.png",
+      "inkBounds": [
+        256,
+        294,
+        768,
+        730
+      ]
+    },
+    "sleepy": {
+      "label": "sleepy",
+      "kind": "idle",
+      "detail": "1モンスター1枚方式。",
+      "note": "STAGE1正式素材",
+      "src": "c1-koshigaya-dragon.png",
+      "inkBounds": [
+        256,
+        294,
+        768,
+        730
+      ]
+    },
+    "alert": {
+      "label": "alert",
+      "kind": "idle",
+      "detail": "1モンスター1枚方式。",
+      "note": "STAGE1正式素材",
+      "src": "c1-koshigaya-dragon.png",
+      "inkBounds": [
+        256,
+        294,
+        768,
+        730
+      ]
+    },
+    "hurt1": {
+      "label": "hurt1",
+      "kind": "hit",
+      "detail": "1モンスター1枚方式。",
+      "note": "STAGE1正式素材",
+      "src": "c1-koshigaya-dragon.png",
+      "inkBounds": [
+        256,
+        294,
+        768,
+        730
+      ]
+    },
+    "hurt2": {
+      "label": "hurt2",
+      "kind": "hit",
+      "detail": "1モンスター1枚方式。",
+      "note": "STAGE1正式素材",
+      "src": "c1-koshigaya-dragon.png",
+      "inkBounds": [
+        256,
+        294,
+        768,
+        730
+      ]
+    },
+    "hurt3": {
+      "label": "hurt3",
+      "kind": "hit",
+      "detail": "1モンスター1枚方式。",
+      "note": "STAGE1正式素材",
+      "src": "c1-koshigaya-dragon.png",
+      "inkBounds": [
+        256,
+        294,
+        768,
+        730
+      ]
+    },
+    "attack": {
+      "label": "attack",
+      "kind": "attack",
+      "detail": "1モンスター1枚方式。",
+      "note": "STAGE1正式素材",
+      "src": "c1-koshigaya-dragon.png",
+      "inkBounds": [
+        256,
+        294,
+        768,
+        730
+      ]
+    },
+    "strong": {
+      "label": "strong",
+      "kind": "attack",
+      "detail": "1モンスター1枚方式。",
+      "note": "STAGE1正式素材",
+      "src": "c1-koshigaya-dragon.png",
+      "inkBounds": [
+        256,
+        294,
+        768,
+        730
+      ]
+    },
+    "special": {
+      "label": "special",
+      "kind": "attack",
+      "detail": "1モンスター1枚方式。",
+      "note": "STAGE1正式素材",
+      "src": "c1-koshigaya-dragon.png",
+      "inkBounds": [
+        256,
+        294,
+        768,
+        730
+      ]
+    },
+    "defeated": {
+      "label": "defeated",
+      "kind": "defeated",
+      "detail": "1モンスター1枚方式。",
+      "note": "STAGE1正式素材",
+      "src": "c1-koshigaya-dragon.png",
+      "inkBounds": [
+        256,
+        294,
+        768,
+        730
+      ]
+    },
+    "smile": {
+      "label": "smile",
+      "kind": "idle",
+      "detail": "1モンスター1枚方式。",
+      "note": "STAGE1正式素材",
+      "src": "c1-koshigaya-dragon.png",
+      "inkBounds": [
+        256,
+        294,
+        768,
+        730
+      ]
+    },
+    "angry": {
+      "label": "angry",
+      "kind": "idle",
+      "detail": "1モンスター1枚方式。",
+      "note": "STAGE1正式素材",
+      "src": "c1-koshigaya-dragon.png",
+      "inkBounds": [
+        256,
+        294,
+        768,
+        730
+      ]
+    },
+    "cry": {
+      "label": "cry",
+      "kind": "idle",
+      "detail": "1モンスター1枚方式。",
+      "note": "STAGE1正式素材",
+      "src": "c1-koshigaya-dragon.png",
+      "inkBounds": [
+        256,
+        294,
+        768,
+        730
+      ]
+    },
+    "surprised": {
+      "label": "surprised",
+      "kind": "idle",
+      "detail": "1モンスター1枚方式。",
+      "note": "STAGE1正式素材",
+      "src": "c1-koshigaya-dragon.png",
+      "inkBounds": [
+        256,
+        294,
+        768,
+        730
+      ]
+    },
+    "worried": {
+      "label": "worried",
+      "kind": "idle",
+      "detail": "1モンスター1枚方式。",
+      "note": "STAGE1正式素材",
+      "src": "c1-koshigaya-dragon.png",
+      "inkBounds": [
+        256,
+        294,
+        768,
+        730
+      ]
+    },
+    "stare": {
+      "label": "stare",
+      "kind": "idle",
+      "detail": "1モンスター1枚方式。",
+      "note": "STAGE1正式素材",
+      "src": "c1-koshigaya-dragon.png",
+      "inkBounds": [
+        256,
+        294,
+        768,
+        730
+      ]
+    },
+    "wink": {
+      "label": "wink",
+      "kind": "idle",
+      "detail": "1モンスター1枚方式。",
+      "note": "STAGE1正式素材",
+      "src": "c1-koshigaya-dragon.png",
+      "inkBounds": [
+        256,
+        294,
+        768,
+        730
+      ]
+    },
+    "grumpy": {
+      "label": "grumpy",
+      "kind": "idle",
+      "detail": "1モンスター1枚方式。",
+      "note": "STAGE1正式素材",
+      "src": "c1-koshigaya-dragon.png",
+      "inkBounds": [
+        256,
+        294,
+        768,
+        730
+      ]
+    }
+  },
+  "bossPhases": {
+    "phase2": {
+      "hpRatio": 0.55,
+      "enemyEvery": 1
+    },
+    "rage": {
+      "hpRatio": 0.25,
+      "enemyEvery": 1,
+      "healMultiplier": 0.5
+    }
+  }
+}

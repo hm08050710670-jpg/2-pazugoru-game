@@ -1,0 +1,304 @@
+{
+  "schema": 1,
+  "id": "s1-2-2",
+  "name": "モグティー",
+  "stageLabel": "1-2  2/3",
+  "course": "STAGE 1 始まりの河川敷",
+  "background": "battle-riverside.webp",
+  "texture": "turf.webp",
+  "element": "grass",
+  "stats": {
+    "enemyMax": 720,
+    "playerMax": 3200,
+    "enemyAttack": 135,
+    "enemyEvery": 2,
+    "attackPerBall": 42,
+    "comboStep": 0.38,
+    "healPerBall": 38,
+    "healComboStep": 0.2
+  },
+  "display": {
+    "frameWidth": 1024,
+    "frameHeight": 1024,
+    "groundY": 1024,
+    "inkBounds": [
+      368,
+      355,
+      655,
+      668
+    ],
+    "motionBounds": [
+      368,
+      355,
+      655,
+      668
+    ],
+    "visibleHeight": 190,
+    "baseline": 1024,
+    "width": 190,
+    "height": 190,
+    "displayScale": 1.0
+  },
+  "poses": {
+    "normal": {
+      "label": "normal",
+      "kind": "idle",
+      "detail": "1モンスター1枚方式。",
+      "note": "STAGE1正式素材",
+      "src": "s1-mogutee.png",
+      "inkBounds": [
+        368,
+        355,
+        655,
+        668
+      ]
+    },
+    "happy": {
+      "label": "happy",
+      "kind": "idle",
+      "detail": "1モンスター1枚方式。",
+      "note": "STAGE1正式素材",
+      "src": "s1-mogutee.png",
+      "inkBounds": [
+        368,
+        355,
+        655,
+        668
+      ]
+    },
+    "curious": {
+      "label": "curious",
+      "kind": "idle",
+      "detail": "1モンスター1枚方式。",
+      "note": "STAGE1正式素材",
+      "src": "s1-mogutee.png",
+      "inkBounds": [
+        368,
+        355,
+        655,
+        668
+      ]
+    },
+    "sleepy": {
+      "label": "sleepy",
+      "kind": "idle",
+      "detail": "1モンスター1枚方式。",
+      "note": "STAGE1正式素材",
+      "src": "s1-mogutee.png",
+      "inkBounds": [
+        368,
+        355,
+        655,
+        668
+      ]
+    },
+    "alert": {
+      "label": "alert",
+      "kind": "idle",
+      "detail": "1モンスター1枚方式。",
+      "note": "STAGE1正式素材",
+      "src": "s1-mogutee.png",
+      "inkBounds": [
+        368,
+        355,
+        655,
+        668
+      ]
+    },
+    "hurt1": {
+      "label": "hurt1",
+      "kind": "hit",
+      "detail": "1モンスター1枚方式。",
+      "note": "STAGE1正式素材",
+      "src": "s1-mogutee.png",
+      "inkBounds": [
+        368,
+        355,
+        655,
+        668
+      ]
+    },
+    "hurt2": {
+      "label": "hurt2",
+      "kind": "hit",
+      "detail": "1モンスター1枚方式。",
+      "note": "STAGE1正式素材",
+      "src": "s1-mogutee.png",
+      "inkBounds": [
+        368,
+        355,
+        655,
+        668
+      ]
+    },
+    "hurt3": {
+      "label": "hurt3",
+      "kind": "hit",
+      "detail": "1モンスター1枚方式。",
+      "note": "STAGE1正式素材",
+      "src": "s1-mogutee.png",
+      "inkBounds": [
+        368,
+        355,
+        655,
+        668
+      ]
+    },
+    "attack": {
+      "label": "attack",
+      "kind": "attack",
+      "detail": "1モンスター1枚方式。",
+      "note": "STAGE1正式素材",
+      "src": "s1-mogutee.png",
+      "inkBounds": [
+        368,
+        355,
+        655,
+        668
+      ]
+    },
+    "strong": {
+      "label": "strong",
+      "kind": "attack",
+      "detail": "1モンスター1枚方式。",
+      "note": "STAGE1正式素材",
+      "src": "s1-mogutee.png",
+      "inkBounds": [
+        368,
+        355,
+        655,
+        668
+      ]
+    },
+    "special": {
+      "label": "special",
+      "kind": "attack",
+      "detail": "1モンスター1枚方式。",
+      "note": "STAGE1正式素材",
+      "src": "s1-mogutee.png",
+      "inkBounds": [
+        368,
+        355,
+        655,
+        668
+      ]
+    },
+    "defeated": {
+      "label": "defeated",
+      "kind": "defeated",
+      "detail": "1モンスター1枚方式。",
+      "note": "STAGE1正式素材",
+      "src": "s1-mogutee.png",
+      "inkBounds": [
+        368,
+        355,
+        655,
+        668
+      ]
+    },
+    "smile": {
+      "label": "smile",
+      "kind": "idle",
+      "detail": "1モンスター1枚方式。",
+      "note": "STAGE1正式素材",
+      "src": "s1-mogutee.png",
+      "inkBounds": [
+        368,
+        355,
+        655,
+        668
+      ]
+    },
+    "angry": {
+      "label": "angry",
+      "kind": "idle",
+      "detail": "1モンスター1枚方式。",
+      "note": "STAGE1正式素材",
+      "src": "s1-mogutee.png",
+      "inkBounds": [
+        368,
+        355,
+        655,
+        668
+      ]
+    },
+    "cry": {
+      "label": "cry",
+      "kind": "idle",
+      "detail": "1モンスター1枚方式。",
+      "note": "STAGE1正式素材",
+      "src": "s1-mogutee.png",
+      "inkBounds": [
+        368,
+        355,
+        655,
+        668
+      ]
+    },
+    "surprised": {
+      "label": "surprised",
+      "kind": "idle",
+      "detail": "1モンスター1枚方式。",
+      "note": "STAGE1正式素材",
+      "src": "s1-mogutee.png",
+      "inkBounds": [
+        368,
+        355,
+        655,
+        668
+      ]
+    },
+    "worried": {
+      "label": "worried",
+      "kind": "idle",
+      "detail": "1モンスター1枚方式。",
+      "note": "STAGE1正式素材",
+      "src": "s1-mogutee.png",
+      "inkBounds": [
+        368,
+        355,
+        655,
+        668
+      ]
+    },
+    "stare": {
+      "label": "stare",
+      "kind": "idle",
+      "detail": "1モンスター1枚方式。",
+      "note": "STAGE1正式素材",
+      "src": "s1-mogutee.png",
+      "inkBounds": [
+        368,
+        355,
+        655,
+        668
+      ]
+    },
+    "wink": {
+      "label": "wink",
+      "kind": "idle",
+      "detail": "1モンスター1枚方式。",
+      "note": "STAGE1正式素材",
+      "src": "s1-mogutee.png",
+      "inkBounds": [
+        368,
+        355,
+        655,
+        668
+      ]
+    },
+    "grumpy": {
+      "label": "grumpy",
+      "kind": "idle",
+      "detail": "1モンスター1枚方式。",
+      "note": "STAGE1正式素材",
+      "src": "s1-mogutee.png",
+      "inkBounds": [
+        368,
+        355,
+        655,
+        668
+      ]
+    }
+  }
+}
